@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.entity.Course;
 import com.repository.CourseRepository;
+import com.vo.CourseStudentVO;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -57,6 +58,30 @@ public class CourseServiceImpl implements CourseService {
 			log.info("Corsi non trovati.");
 		}
 		return courses;
+	}
+
+	@Override
+	public List<CourseStudentVO> findCourseStudent() {
+		List<CourseStudentVO> coursesStudents = cr.findCourseStudent();
+		if (coursesStudents != null && !coursesStudents.isEmpty()) {
+			log.info("Corsi trovati.");
+			coursesStudents.forEach(System.out::println);
+		} else {
+			log.info("Corsi non trovati.");
+		}
+		return coursesStudents;
+	}
+
+	@Override
+	public List<CourseStudentVO> findCourseStudentByStudentId(Integer studentId) {
+		List<CourseStudentVO> coursesStudents = cr.findCourseStudentByStudentId(studentId);
+		if (coursesStudents != null && !coursesStudents.isEmpty()) {
+			log.info("Corsi trovati.");
+			coursesStudents.forEach(System.out::println);
+		} else {
+			log.info("Corsi non trovati.");
+		}
+		return coursesStudents;
 	}
 
 }

@@ -54,13 +54,23 @@ public class Application implements CommandLineRunner {
 		s1.setFirstName("Roberto");
 		s1.setLastName("Graffeo");
 
+		s2.setFirstName("Marco");
+		s2.setLastName("Rossi");
+
+		s3.setFirstName("Giovanni");
+		s3.setLastName("Verdi");
+
 		c1.setTitle("Java 1");
 		c1.setDescription("Corso Java 1");
 
 		s1.getCourses().add(c1);
+		s2.getCourses().add(c1);
+		s3.getCourses().add(c1);
 
 		cs.save(c1);
 		ss.save(s1);
+		ss.save(s2);
+		ss.save(s3);
 
 		cs.findAll();
 		ss.findAll();
